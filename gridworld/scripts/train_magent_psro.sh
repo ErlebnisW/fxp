@@ -12,7 +12,7 @@ oppo_model_dir="random"
 hidden_size=64
 layer_N=1
 num_env_steps=100000000
-n_rollout_threads=100
+n_rollout_threads=1
 episode_length=200
 data_chunk_length=10
 num_mini_batch=1
@@ -28,7 +28,7 @@ log_interval=100000
 save_interval=1000000
 
 
-CUDA_VISIBLE_DEVICES=0 python train/train_magent_psro.py \
+CUDA_VISIBLE_DEVICES=1 python train/train_magent_psro.py \
 --algorithm_name ${algo} --experiment_name ${exp} --seed ${seed} \
 --env_name ${env} --scenario_name ${scenario} --map_size ${map_size} \
 --one_side --use_population \

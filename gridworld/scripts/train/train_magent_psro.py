@@ -87,6 +87,14 @@ def parse_args(args, parser):
 def main(args):
     parser = get_config()
     all_args = parse_args(args, parser)
+    
+    import json
+    import easydict
+    # with open('commandlines.json', 'w') as f:
+    #     json.dump(all_args.__dict__, f, indent=2)
+    with open('/home/wangmingzhi/fxp/gridworld/scripts/commandlines.json', 'r') as f:
+        all_args = json.load(f)
+    all_args = easydict.EasyDict(all_args)
 
     if all_args.algorithm_name == "rmappo" or all_args.algorithm_name == "rmappg":
         assert (all_args.use_recurrent_policy or all_args.use_naive_recurrent_policy), ("check recurrent policy!")
